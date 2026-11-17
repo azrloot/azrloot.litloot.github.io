@@ -22,9 +22,9 @@
   .menu-btn:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
   .menu-btn svg { transition:transform 160ms ease; }
   .menu-btn[aria-expanded="true"] svg { transform:rotate(180deg); }
-  .menu-list { position:absolute; top:68px; min-width:160px; display:flex; flex-direction:column; padding:6px; background:var(--panel); border:1px solid var(--panel-line); border-radius:14px; }
+  .menu-list { position:absolute; top:68px; left:50%; transform:translateX(-50%); width:min(440px, calc(100vw - 32px)); display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:4px; padding:6px; background:var(--panel); border:1px solid var(--panel-line); border-radius:14px; }
   .menu-list[hidden] { display:none; }
-  .menu-list a { display:block; padding:12px 16px; border-radius:10px; font-size:16px; font-weight:500; color:var(--text); text-decoration:none; text-align:center; }
+  .menu-list a { display:block; padding:12px 8px; border-radius:10px; font-size:16px; font-weight:500; color:var(--text); text-decoration:none; text-align:center; }
   .menu-list a:hover, .menu-list a:focus-visible { background:#2A2622; color:var(--accent); outline:none; }
 </style>
 </head>
