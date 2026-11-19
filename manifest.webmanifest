@@ -1,0 +1,13 @@
+{
+  "name": "Lit-Loot",
+  "short_name": "Lit-Loot",
+  "start_url": "/litloot/",
+  "scope": "/litloot/",
+  "display": "standalone",
+  "background_color": "#0E0D0C",
+  "theme_color": "#0E0D0C",
+  "icons": [
+    { "src": "/litloot/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/litloot/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

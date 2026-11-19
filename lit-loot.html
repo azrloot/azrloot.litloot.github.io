@@ -14,6 +14,9 @@ body{margin:0;background:#0E0D0C}
 a{color:#B57BFF}a:hover{color:#CFA6FF}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5105624382710953" crossorigin="anonymous"></script>
+<link rel="manifest" href="https://azrloot.github.io/litloot/manifest.webmanifest">
+<meta name="theme-color" content="#0E0D0C">
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/litloot/sw.js',{scope:'/litloot/'}).catch(function(){});}</script>
 </head>
 <body>
 <div style="min-height: 100vh; box-sizing: border-box; background: #0E0D0C; color: #FFFFFF; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 24px 24px 32px">
@@ -25,9 +28,25 @@ a{color:#B57BFF}a:hover{color:#CFA6FF}
 <div style="margin-top: 72px; display: flex; flex-direction: column; align-items: center; gap: 14px">
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px">
 <a href="https://azrloot.github.io/litloot/downloads/Lit-Loot-Shortcut.zip" download="Lit-Loot-Shortcut.zip" style="display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 32px; border-radius: 999px; background: #B57BFF; color: #0E0D0C; font-size: 19px; font-weight: 600; text-decoration: none"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8.5" height="8.5" rx="1"></rect><rect x="12.5" y="3" width="8.5" height="8.5" rx="1"></rect><rect x="3" y="12.5" width="8.5" height="8.5" rx="1"></rect><rect x="12.5" y="12.5" width="8.5" height="8.5" rx="1"></rect></svg>Download for Windows</a>
+<button type="button" id="a2hs" style="display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 32px; border: 0; border-radius: 999px; background: #B57BFF; color: #0E0D0C; font-family: Inter, system-ui, sans-serif; font-size: 19px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg><span>Add to Android Home Screen</span></button>
 </div>
-<p style="margin: 0; max-width: 520px; font-size: 14px; line-height: 1.5; color: #FFFFFF; text-align: center">Desktop shortcut to the Lit-Loot site · ZIP · 1 KB<br>Unzip and drag <b>Lit-Loot.url</b> to your desktop. Double-click it to open the site.</p>
+<p style="margin: 0; max-width: 560px; font-size: 14px; line-height: 1.5; color: #FFFFFF; text-align: center"><b>Windows:</b> unzip and drag <b>Lit-Loot.url</b> to your desktop (ZIP · 1 KB).<br><b>Android:</b> open this page in Chrome and tap the button to add Lit-Loot to your home screen.</p>
+<p id="a2hs-help" hidden style="margin: 0; max-width: 560px; font-size: 14px; line-height: 1.5; color: #FFFFFF; text-align: center; opacity: .85"></p>
 </div>
 </div>
+<script>
+(function(){
+  var deferred=null, btn=document.getElementById('a2hs'), help=document.getElementById('a2hs-help');
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e;});
+  window.addEventListener('appinstalled',function(){btn.querySelector('span').textContent='Added to home screen';});
+  btn.addEventListener('click',function(){
+    if(deferred){deferred.prompt();deferred.userChoice.finally(function(){deferred=null;});return;}
+    var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+    help.textContent= ios ? 'On iPhone: tap the Share button in Safari, then "Add to Home Screen".'
+      : 'In Chrome on Android: tap the ⋮ menu, then "Add to Home screen" or "Install app". If you are on a computer, open this page on your phone.';
+    help.hidden=false;
+  });
+})();
+</script>
 </body>
 </html>
